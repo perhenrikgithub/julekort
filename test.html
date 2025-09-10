@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <div class="envelope" onclick="openCard()"><div class="flap"></div></div>
+
+                <div class="letter">
+                    <div class="card" id="card" onclick="this.classList.toggle('flipped')">
+                        <img class="front" src="christmas_card_images/1_udbros.png" alt="Letter" />
+                        <div class="back">
+                            <img src="watermarks.png" />
+                            <div class="text-container">
+                                <p>Kjære vennekollektiv. God jul og godt nytt år! Vi i udbros håper du får en aldeles fantastisk jul og gleder oss til å hygge oss sammen med dere også i det nye året. Hjartleg helsing Per, Robkul og Freddebassen (dine Udbros)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/CSSRulePlugin.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
