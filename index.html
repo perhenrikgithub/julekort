@@ -13,7 +13,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="envelope" onclick="openCard()"><div class="flap"></div></div>
+                <div class="envelope" onclick="openCard();document.getElementById('open-envelope').style.animation = 'fadeOut 0.5s forwards';document.getElementById('flip-card').style.animation = 'fadeIn 2.5s forwards';"><div class="flap"></div></div>
 
                 <div class="letter">
                     <div class="card" id="card" onclick="this.classList.toggle('flipped')">
@@ -27,6 +27,11 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="helper-text">
+            <p id="open-envelope">Trykk på konvolutten for å åpne</p>
+            <p id="flip-card">Trykk på julekortet for å snu det</p>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>

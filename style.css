@@ -16,8 +16,40 @@
   box-sizing: border-box;
 }
 
+.helper-text {
+  width: 100%;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.helper-text #open-envelope {
+  opacity: 1;
+}
+.helper-text #flip-card {
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  83% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .container {
-  min-height: 100vh;
+  min-height: 85vh;
+  padding: 2em;
   display: flex;
   align-items: center;
   justify-content: center;
