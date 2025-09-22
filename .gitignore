@@ -1,0 +1,4 @@
+static/images/cards/*
+!static/images/cards/0.png
+
+.DS_Store
