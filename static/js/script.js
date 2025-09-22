@@ -60,3 +60,13 @@ function closeCard() {
     t1.reverse();
     t2.reverse();
 }
+
+function update_helpertext(new_text) {
+    let helpertext = document.getElementById("helper-text");
+    helpertext.style.animation = "fadeOut 0.5s forwards";
+
+    setTimeout(() => {
+        helpertext.innerHTML = new_text;
+        helpertext.style.animation = "fadeIn 2.5s forwards";
+    }, 500);
+}

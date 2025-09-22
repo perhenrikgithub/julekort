@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Upload a Card</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="/static/css/style.css" />
+    </head>
+    <body>
+        <h1>🎄 Last opp julekortet ditt 🎄</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="card_image">Last opp julekortet</label>
+            <input type="file" id="card_image" name="card_image" accept="image/*" required />
+
+            <div class="user-info">
+                <label for="sender">Fra (avsender)</label>
+                <input type="text" id="sender" name="sender" required />
+
+                <label for="recipient">Til (mottaker)</label>
+                <input type="text" id="recipient" name="recipient" required />
+            </div>
+
+            <label for="card_text">Skriv inn tekst til baksiden av julekortet</label>
+            <textarea id="card_text" name="card_text" rows="8" cols="40" required></textarea>
+            <button type="submit">Last opp julekort</button>
+        </form>
+
+        <br />
+
+        <div class="preview">
+            <label for="card_preview">Slik vil det se ut på baksiden</label>
+            <div class="card">
+                <div class="back" style="transform: rotateY(0)">
+                    <img src="/static/images/watermarks.png" />
+                    <div class="text-container">
+                        <p id="card_text_preview"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="/static/js/preview_handler.js"></script>
+    </body>
+</html>

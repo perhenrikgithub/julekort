@@ -4,6 +4,13 @@
   --base-dark: #ede8db;
   --shadow: #C8C1B0;
   --letter-backside: #f7f7ef;
+  --bg: #ffffff;
+  --text: #0f1720;
+  --muted: #6b7280;
+  --accent: #111827;
+  --accent-weak: rgba(17,24,39,0.50);
+  --focus: #151515;
+  --font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   --envelope-width: 500px;
   --envelope-half-width: calc(var(--envelope-width) / 2);
   --envelope-height: var(--envelope-width);
@@ -14,18 +21,13 @@
   border: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.helper-text {
+#helper-text {
   width: 100%;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-}
-.helper-text #open-envelope {
-  opacity: 1;
-}
-.helper-text #flip-card {
-  opacity: 0;
 }
 
 @keyframes fadeIn {
@@ -165,6 +167,126 @@
   margin: 0;
   font-size: 2em;
   font-family: "Reenie Beanie", "Nanum Pen Script", "Comic Sans MS", "Lucida Handwriting", "Brush Script MT", Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 2.5em;
+  padding: 0.5em;
+}
+
+form {
+  font-family: var(--font-family);
+  color: var(--text);
+  background: var(--bg);
+  width: 100%;
+  max-width: min(560px, 90vw);
+  padding-left: 1em;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+}
+form label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  user-select: none;
+}
+form input[type=text],
+form textarea {
+  font: inherit;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--accent-weak);
+  padding: 10px 12px;
+  border-radius: 0.5em;
+  outline: none;
+  min-height: 40px;
+  transition: box-shadow 0.12s ease, border-color 0.12s ease;
+}
+form textarea {
+  resize: none;
+  min-height: 96px;
+  line-height: 1.4;
+}
+form input[type=file] {
+  padding: 0;
+  cursor: pointer;
+}
+form .user-info {
+  display: flex;
+  gap: 1em;
+}
+form .user-info input[type=text] {
+  flex: 1;
+}
+form input[type=text] {
+  padding: 10px;
+  border: 1px solid var(--accent-weak);
+  border-radius: 0.5em;
+  outline: none;
+  transition: border-color 0.12s ease;
+}
+form label[for] {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  font-size: 1.25rem;
+  color: var(--text);
+  transition: background 0.12s ease, border-color 0.12s ease;
+  width: fit-content;
+}
+form button {
+  font: inherit;
+  padding: 10px 14px;
+  border-radius: 0.5em;
+  border: 1px solid transparent;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  min-height: 44px;
+  transition: transform 0.06s ease, box-shadow 0.08s ease, opacity 0.08s ease;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+form button:hover {
+  background-color: #6b7280;
+}
+form button:active {
+  transform: translateY(0);
+}
+form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+form input:focus,
+form textarea:focus,
+form label[for]:focus,
+form button:focus {
+  box-shadow: 0 0 0 4px rgba(var(--focus), 0.12);
+  border-color: var(--focus);
+  outline: none;
+}
+
+.preview {
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+.preview label {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  font-size: 1.25rem;
+  color: var(--text);
+  width: fit-content;
+  margin-bottom: 0.75em;
+}
+.preview .card {
+  width: calc(min(560px, 90vw) - 1em);
+  height: calc(min(560px, 90vw) - 1em);
+}
+.preview .card .back {
+  width: calc(min(560px, 90vw) - 1em);
+  height: calc(min(560px, 90vw) - 1em);
 }
 
 @media (max-width: 600px) {
