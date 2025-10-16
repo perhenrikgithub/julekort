@@ -8,23 +8,40 @@
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="/static/css/style.css" />
+
+        <script src="https://kit.fontawesome.com/d402cb3f72.js" crossorigin="anonymous"></script>
     </head>
-    <body>
-        <h1>🎄 Last opp julekortet ditt 🎄</h1>
+    <body class="upload-page">
+        <h1>🎄 Send julekortet 🎄</h1>
         <form action="/upload" method="post" enctype="multipart/form-data">
-            <label for="card_image">Last opp julekortet</label>
-            <input type="file" id="card_image" name="card_image" accept="image/*" required />
+            <div class="user-info-grid">
+                <input type="hidden" id="image_url" name="image_url" value="{{ image_url }}" />
+                <label for="card_image">Last opp julekortet</label>
+                <input type="file" id="card_image" name="card_image" accept="image/*" />
+            </div>
 
-            <div class="user-info">
-                <label for="sender">Fra (avsender)</label>
-                <input type="text" id="sender" name="sender" required />
+            <div class="user-info-grid">
+                <label for="sender">Fra (navn)</label>
+                <input type="text" id="sender" name="sender" placeholder="Torbjørnisse Reinsdal" value="{{ prefill_sender }}" />
 
-                <label for="recipient">Til (mottaker)</label>
-                <input type="text" id="recipient" name="recipient" required />
+                <label for="sender_email">Fra (epost)</label>
+                <input type="text" id="sender_email" name="sender_email" placeholder="deg@julepost.no" value="{{ prefill_sender_email }}" required />
+
+                <label for="recipient">Til (epost)</label>
+                <input type="text" id="recipient" name="recipient" placeholder="rudolf@nissemail.no, nissen@juletre.no, ..." value="{{ prefill_recipient }}" required />
+            </div>
+
+            <div class="user-info-grid-boolean">
+                <label for="display_on_pegboard">
+                    <abbr data-tooltip="Det finnes en oppslagstavle for alle julekortene som er sendt inn, her velger du om kortet skal eller ikke skal vises der."><i class="fa-solid fa-circle-info"></i></abbr>
+
+                    <p>Vis på oppslagstavlen</p>
+                </label>
+                <input type="checkbox" id="display_on_corkboard" name="display_on_corkboard" checked />
             </div>
 
             <label for="card_text">Skriv inn tekst til baksiden av julekortet</label>
-            <textarea id="card_text" name="card_text" rows="8" cols="40" required></textarea>
+            <textarea id="card_text" name="card_text" rows="8" cols="40" required>{{ card_text }}</textarea>
             <button type="submit">Last opp julekort</button>
         </form>
 
@@ -42,6 +59,7 @@
             </div>
         </div>
 
-        <script src="/static/js/preview_handler.js"></script>
+        <script src="/static/js/upload_page.js"></script>
+        <!-- <script src="/static/js/snow.js"></script> -->
     </body>
 </html>

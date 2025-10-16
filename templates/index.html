@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Julekortsender!</title>
+        <link rel="stylesheet" href="/static/css/index.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Belleza&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- <header>
+            <h1>Velkommen til Pers Julekortsender!</h1>
+            <h2>Send et digitalt julekort til noen du er glad i 🎄</h2>
+            <nav>
+                <ul>
+                    <li><a href="/upload">Send julekort</a></li>
+                    <li><a href="/pegboard">Se oppslagstavlen</a></li>
+                </ul>
+            </nav>
+        </header> -->
+
+        <div class="skip-container">
+            <button onclick="skipStory()">Hopp over!</button>
+        </div>
+
+        <div id="story-wrapper">
+            <div id="story-container">
+                <div id="story-teller"></div>
+                <div class="options">
+                    <button onclick="window.location.href='/upload'" type="button">Send et julekort</button>
+                    <button onclick="window.location.href='/corkboard'" type="button">Se julekort-tavlen</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="/static/js/snow.js"></script>
+        <script src="/static/js/storyteller.js"></script>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.skip-container {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 10;
+}
+.skip-container button {
+  font-family: "Reenie Beanie";
+  padding: 0.35em 0.85em;
+  font-size: 2em;
+  cursor: pointer;
+  border: none;
+  border-radius: 9999px;
+  background-color: transparent;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+.skip-container button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#story-wrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  display: grid;
+  place-items: center;
+}
+#story-wrapper #story-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+#story-wrapper #story-container #story-teller {
+  font-size: 8em;
+  color: white;
+  font-family: "Reenie Beanie", cursive, "Courier New", Courier, monospace;
+}
+#story-wrapper #story-container .options button {
+  opacity: 0;
+  margin: 0.5em 0.25em;
+  padding: 0.5em 1.25em;
+  font-size: 1.4em;
+  cursor: pointer;
+  border: none;
+  border-radius: 9999px;
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+#story-wrapper #story-container .options button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}

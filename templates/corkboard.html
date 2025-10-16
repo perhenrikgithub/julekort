@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Julekort-tavlen!</title>
+        <link rel="stylesheet" href="/static/css/style.css" />
+    </head>
+    <body style="background-color: black; color: white">
+        <h1>Her er julekort-tavlen!</h1>
+
+        <div class="corkboard-info">
+            <p>Disse kortene har folk valgt å vise frem. <strong>Det er helt greit å la seg imponere!</strong> Vil du også sende inn et kort? Gjør det <a href="/upload">her</a>! Jada, det er sikkert duplicates</p>
+            <br />
+        </div>
+
+        <div class="corkboard-wrapper">
+            <div class="corkboard">
+                {% for url in images %}
+                <img src="{{ url }}" alt="Julekort" />
+                {% endfor %}
+            </div>
+        </div>
+        <script src="/static/js/snow.js"></script>
+    </body>
+</html>

@@ -4,11 +4,15 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Nice! da var det lastet opp</title>
-        <link rel="stylesheet" href="/static/style.css" />
+        <link rel="stylesheet" href="/static/css/style.css" />
     </head>
     <body>
-        <h1>🎄 Nice! da var det lastet opp 🎄</h1>
-        <p>Her er ditt kort med ID: {{ card_id }}</p>
-        <a href="/envelope/{{ card_id }}"> /envelope/{{ card_id }} </a>
+        <div class="uploaded-wrapper">
+            <h1>🎄 Nice! da var det lastet opp 🎄</h1>
+            <p>Sjekk ut kortet ditt slik det vil bli mottatt <a href="/card/{{ card_id }}">her</a></p>
+            <p>Last opp nytt kort <a href="/upload">her</a> (GJØR DET, da blir flere glad!)</p>
+            <p>Tilbake til forsiden <a href="/">her</a></p>
+            <p>Sjekk alle julekortene som er sent <a href="/corkboard">her</a></p>
+        </div>
     </body>
 </html>

@@ -174,25 +174,35 @@ h1 {
   padding: 0.5em;
 }
 
-form {
+.upload-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.upload-page > * {
+  max-width: min(560px, 90vw);
+}
+.upload-page h1 {
+  font-size: 2.4em;
+}
+.upload-page form {
   font-family: var(--font-family);
   color: var(--text);
   background: var(--bg);
   width: 100%;
-  max-width: min(560px, 90vw);
-  padding-left: 1em;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 0.75em;
 }
-form label {
-  font-size: 0.9rem;
-  color: var(--muted);
-  user-select: none;
+.upload-page form input[type=checkbox] {
+  padding-left: 1.25em;
+  width: 1.5em;
+  height: 1.5em;
+  accent-color: var(--accent);
+  cursor: pointer;
 }
-form input[type=text],
-form textarea {
+.upload-page form input[type=text],
+.upload-page form textarea {
   font: inherit;
   color: var(--text);
   background: transparent;
@@ -203,30 +213,39 @@ form textarea {
   min-height: 40px;
   transition: box-shadow 0.12s ease, border-color 0.12s ease;
 }
-form textarea {
+.upload-page form textarea {
   resize: none;
   min-height: 96px;
   line-height: 1.4;
 }
-form input[type=file] {
+.upload-page form input[type=file] {
   padding: 0;
   cursor: pointer;
 }
-form .user-info {
-  display: flex;
-  gap: 1em;
+.upload-page form .user-info-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem 1rem;
+  align-items: center;
 }
-form .user-info input[type=text] {
-  flex: 1;
+.upload-page form .user-info-grid label {
+  font-weight: 500;
 }
-form input[type=text] {
+.upload-page form .user-info-grid input:not([type=file]) {
+  justify-self: end;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+}
+.upload-page form input[type=text] {
   padding: 10px;
   border: 1px solid var(--accent-weak);
   border-radius: 0.5em;
   outline: none;
   transition: border-color 0.12s ease;
 }
-form label[for] {
+.upload-page form label[for] {
   display: inline-flex;
   align-items: center;
   background: transparent;
@@ -235,7 +254,26 @@ form label[for] {
   transition: background 0.12s ease, border-color 0.12s ease;
   width: fit-content;
 }
-form button {
+.upload-page form .user-info-grid-boolean {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem 0.5rem;
+  align-items: center;
+  justify-items: start;
+}
+.upload-page form .user-info-grid-boolean label[for=display_on_pegboard] {
+  display: flex;
+  align-items: center;
+}
+.upload-page form .user-info-grid-boolean label[for=display_on_pegboard] i {
+  margin-right: 0.25em;
+}
+.upload-page form label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  user-select: none;
+}
+.upload-page form button {
   font: inherit;
   padding: 10px 14px;
   border-radius: 0.5em;
@@ -247,28 +285,57 @@ form button {
   transition: transform 0.06s ease, box-shadow 0.08s ease, opacity 0.08s ease;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
 }
-form button:hover {
+.upload-page form button:hover {
   background-color: #6b7280;
 }
-form button:active {
+.upload-page form button:active {
   transform: translateY(0);
 }
-form button:disabled {
+.upload-page form button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
 }
-form input:focus,
-form textarea:focus,
-form label[for]:focus,
-form button:focus {
+.upload-page form input:focus,
+.upload-page form textarea:focus,
+.upload-page form label[for]:focus,
+.upload-page form button:focus {
   box-shadow: 0 0 0 4px rgba(var(--focus), 0.12);
   border-color: var(--focus);
   outline: none;
 }
 
+abbr[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+
+/* Tooltip text */
+abbr[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 180px;
+  transform: translateX(-50%);
+  background-color: var(--base-dark);
+  padding: 6px 10px;
+  border: 1px solid var(--accent-weak);
+  border-radius: 4px;
+  white-space: normal;
+  width: 360px;
+  word-wrap: break-word;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+  transition: opacity 0.1s;
+}
+
+/* Show tooltip on hover */
+abbr[data-tooltip]:hover::after {
+  opacity: 1;
+}
+
 .preview {
-  margin-left: 1em;
   margin-bottom: 1em;
 }
 .preview label {
@@ -281,12 +348,53 @@ form button:focus {
   margin-bottom: 0.75em;
 }
 .preview .card {
-  width: calc(min(560px, 90vw) - 1em);
-  height: calc(min(560px, 90vw) - 1em);
+  width: min(560px, 90vw);
+  height: min(560px, 90vw);
 }
 .preview .card .back {
-  width: calc(min(560px, 90vw) - 1em);
-  height: calc(min(560px, 90vw) - 1em);
+  width: min(560px, 90vw);
+  height: min(560px, 90vw);
+}
+
+.corkboard-info {
+  padding-left: 1.25em;
+  max-width: 550px;
+}
+.corkboard-info a {
+  color: white;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.corkboard-wrapper {
+  border: 5px solid #784646;
+  background-image: url("../images/corkboard.jpg");
+  min-height: 65vh;
+}
+
+.corkboard {
+  display: grid;
+  padding: 2vw;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2vw;
+}
+.corkboard img {
+  aspect-ratio: 1;
+  width: 100%;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+.corkboard img:hover {
+  transform: scale(1);
+}
+
+.uploaded-wrapper p {
+  margin-bottom: 1em;
+  margin-left: 1em;
 }
 
 @media (max-width: 600px) {
@@ -296,6 +404,9 @@ form button:focus {
     --envelope-half-width: calc(var(--envelope-width) / 2);
     --envelope-half-height: calc(var(--envelope-height) / 2);
   }
+  .corkboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .envelope::after {
     background: linear-gradient(42deg, var(--base-dark) 50%, var(--shadow) 50%, var(--base) 50%) var(--envelope-half-width) var(--envelope-half-width)/var(--envelope-half-width) var(--envelope-half-width) no-repeat, linear-gradient(48.2deg, var(--base) 50%, var(--shadow) 50%, transparent 50%) 0px 10px/var(--envelope-half-width) var(--envelope-half-width) no-repeat, linear-gradient(137deg, var(--base) 50%, var(--shadow) 50%, var(--base-dark) 50%) 0px var(--envelope-half-width)/var(--envelope-half-width) var(--envelope-half-width) no-repeat, linear-gradient(131.5deg, transparent 50%, var(--shadow) 50%, var(--base) 50%) var(--envelope-half-width) 10px/var(--envelope-half-width) var(--envelope-half-width) no-repeat;
   }
@@ -303,5 +414,8 @@ form button:focus {
     perspective: calc(var(--envelope-width) * 2.8);
   }
 }
-
-/*# sourceMappingURL=style.css.map */
+@media (max-width: 350px) {
+  .corkboard {
+    grid-template-columns: 1fr;
+  }
+}
