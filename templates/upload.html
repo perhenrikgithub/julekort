@@ -15,8 +15,10 @@
         <h1>🎄 Send julekortet 🎄</h1>
         <form action="/upload" method="post" enctype="multipart/form-data">
             <div class="user-info-grid">
+                <p id="file_input_info" style="display: none"></p>
+                <button type="button" id="remove_file_button" style="display: none; height: 100%">Bytt fil</button>
                 <input type="hidden" id="image_url" name="image_url" value="{{ image_url }}" />
-                <label for="card_image">Last opp julekortet</label>
+                <label for="card_image" id="card_image_label">Last opp julekortet</label>
                 <input type="file" id="card_image" name="card_image" accept="image/*" />
             </div>
 
