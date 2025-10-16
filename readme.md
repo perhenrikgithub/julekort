@@ -10,7 +10,7 @@ For automatisk kompilering av SCSS-filer, kjør følgende kommando:
 sass --watch static/scss/:static/css/ --style expanded --no-source-map
 ```
 
-## Produksjonssetting
+## Kjøring
 
 For å starte FastAPI-applikasjonen, bruk:
 
