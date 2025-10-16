@@ -4,3 +4,10 @@ static/images/cards/*
 static/uploads/*
 
 .DS_Store
+__pycache__
+*.pyc
+env/
+.vscode/
+.idea/
+*.sqlite3
+*.log
