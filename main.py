@@ -8,6 +8,8 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 
+from email_handler import christmas_card_email_handler
+
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -142,6 +144,12 @@ async def upload_card(
                 VALUES (?, ?, ?, ?, ?, ?, ?)""",
             (card_id, card_text, image_url, display, sender, sender_email, recipient)
         )
+
+    christmas_card_email_handler.send_christmas_card(
+        to_email=recipient,
+        card_id=card_id,
+        from_name=sender
+    )
 
     response = templates.TemplateResponse("uploaded.html", {
         "request": request,
