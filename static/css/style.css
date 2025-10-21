@@ -222,6 +222,27 @@ h1 {
   padding: 0;
   cursor: pointer;
 }
+.upload-page form .file-preview-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1rem;
+  max-width: 75%;
+}
+.upload-page form .file-preview-grid p {
+  grid-column: 2; /* in the second column */
+  grid-row: 1;
+  margin: 0;
+}
+.upload-page form .file-preview-grid img {
+  grid-row: 1/span 2; /* image spans both rows */
+  max-width: 125px;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+.upload-page form .file-preview-grid button {
+  grid-column: 2;
+  grid-row: 2;
+}
 .upload-page form .user-info-grid {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -392,6 +413,9 @@ abbr[data-tooltip]:hover::after {
   transform: scale(1);
 }
 
+.uploaded-wrapper p:nth-of-type(1) {
+  font-size: 1.25em;
+}
 .uploaded-wrapper p {
   margin-bottom: 1em;
   margin-left: 1em;

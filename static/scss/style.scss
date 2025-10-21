@@ -250,6 +250,32 @@ h1 {
       cursor: pointer;
     }
 
+    .file-preview-grid {
+      display: grid;
+      grid-template-columns: auto auto; // label + input or preview + button
+      gap: 1rem;
+      max-width: 75%;
+
+      p {
+        grid-column: 2; /* in the second column */
+        grid-row: 1;
+        margin: 0;
+      }
+
+      img {
+        grid-row: 1 / span 2; /* image spans both rows */
+        max-width: 125px;
+        aspect-ratio: 1;
+        object-fit: cover;
+      }
+
+      button {
+        grid-column: 2;
+        grid-row: 2;
+        // height: 100%;
+      }
+    }
+
     .user-info-grid {
       display: grid;
       grid-template-columns: auto 1fr; // label + input
@@ -436,6 +462,10 @@ abbr[data-tooltip]:hover::after {
 }
 
 .uploaded-wrapper {
+  p:nth-of-type(1) {
+    font-size: 1.25em;
+  }
+
   p {
     margin-bottom: 1em;
     margin-left: 1em;

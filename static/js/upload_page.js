@@ -45,30 +45,50 @@ lastRecipient = lastRecipient.replace(/\\054/g, ",");
 lastRecipient = lastRecipient.replace('"', "");
 lastRecipient = lastRecipient.replace('"', "");
 
+// test!
+
 if (lastRecipient.includes(",")) {
     const recipients = lastRecipient.split(",");
-    lastRecipient = recipients.map((r) => r.trim()).join("\n");
+    lastRecipient = recipients.map((r) => r.trim()).join(", ");
     console.log("multiple recipients", lastRecipient);
 }
 
 if (imageUrl) {
+    // hide file-input and label
     imageInput.style.display = "none";
     const cardImageLabel = document.getElementById("card_image_label");
     cardImageLabel.style.display = "none";
+
+    // unhide image preview and change file button
     const fileInputInfo = document.getElementById("file_input_info");
-    const removeFileButton = document.getElementById("remove_file_button");
-    removeFileButton.style.display = "inline";
-    removeFileButton.addEventListener("click", () => {
-        imageInput.value = "";
+    fileInputInfo.innerText = "Julenissen har en kopi av julekortet du sendte inn sist til: " + lastRecipient;
+    fileInputInfo.style.display = "block";
+
+    const card_image_preview = document.getElementById("card_image_preview");
+    card_image_preview.src = decodeURIComponent(imageUrl).replace(/^"+|"+$/g, "");
+    card_image_preview.style.display = "block";
+
+    const changeFileButton = document.getElementById("change_file_button");
+    changeFileButton.style.display = "inline";
+
+    // button logic
+    changeFileButton.addEventListener("click", () => {
+        // hide info and preview
+        fileInputInfo.style.display = "none";
+        card_image_preview.style.display = "none";
+        changeFileButton.style.display = "none";
+
+        // show file input
         imageInput.style.display = "block";
         cardImageLabel.style.display = "block";
-        fileInputInfo.style.display = "none";
-        removeFileButton.style.display = "none";
+
+        // clear file input and preview src and hidden input
+        imageInput.value = "";
+        card_image_preview.src = "";
         document.getElementById("image_url").value = "";
-        // remove cookie
+
+        // remove cookies
         document.cookie = "image_url=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         document.cookie = "recipient=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     });
-    fileInputInfo.innerText = "Julenissen har en kopi av bilde \ndu sendte inn sist til: \n" + lastRecipient;
-    fileInputInfo.style.display = "block";
 }
