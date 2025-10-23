@@ -33,7 +33,7 @@ class emailHandler():
                                             <td style="padding: 0 20px 10px 20px">
                                                 <h2 style="margin: 0 0 10px; font-size: 24px; color: #141414">{from_name} har sendt deg et julekort!</h2>
                                                 <p style="margin: 0 0 10px; font-size: 14px; line-height: 20px; color: #141414">Hei der, du har mottatt et digitalt julekort!</p>
-                                                <a style="color: #141414; text-decoration: none" href="http://127.0.0.1:8000/card/{card_id}"><h3 style="margin: 0 0 15px; font-size: 20px; padding: 0.5em; border: 1px solid #000; width: fit-content; border-radius: 5px; background-color: #f6f4f2">Du kan se julekortet her</h3></a>
+                                                <a style="color: #141414; text-decoration: none" href="https://julekort-2.onrender.com/card/{card_id}"><h3 style="margin: 0 0 15px; font-size: 20px; padding: 0.5em; border: 1px solid #000; width: fit-content; border-radius: 5px; background-color: #f6f4f2">Du kan se julekortet her</h3></a>
                                                 <p style="margin: 0 0 10px; font-size: 14px; line-height: 20px; color: #141414">Dette er ikke fishing, det er Per som har for mye fritid (<a href="https://github.com/perhenrikgithub/julekort" target="_blank" style="color: #000000; text-decoration: underline">GitHub</a>).</p>
                                             </td>
                                         </tr>
