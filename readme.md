@@ -22,9 +22,11 @@ To automatically compile SCSS files to CSS during development, run:
 sass --watch static/scss/:static/css/ --style expanded --no-source-map
 ```
 
+> <b>Note:</b> Use a [Gmail App Password](https://support.google.com/accounts/answer/185833)
+
 ### 3. Environment Variables
 
-Create a `.env` file in the project root directory with the following configuration:
+Create a `.env` file in the project root with the following content, replacing the placeholders with your actual Gmail address, app password, and application URL (localhost or deployed URL):
 
 ```
 GMAIL_USER="mailaddress@gmail.com"
@@ -32,12 +34,26 @@ GMAIL_APP_PASSWORD="xxxx yyyy zzzz qqqq"
 APP_URL="http://theURL:port_if_needed.com"
 ```
 
-> <b>Note:</b> Use a [Gmail App Password](https://support.google.com/accounts/answer/185833)
-
-### 4. Running the Application
+### 4. Running the Application Locally
 
 To start the FastAPI server with automatic reload enabled:
 
 ```bash
 uvicorn main:app --reload
 ```
+
+## Docker Containerization
+
+Julepost can be run inside a Docker container for easier deployment and environment consistency.
+
+#### Environment Variables
+
+Ensure you have a `.env` file in the project root with the necessary environment variables as described [above](#3-environment-variables).
+
+#### Build and Run
+
+```bash
+docker compose up --build -d
+```
+
+The application should be accessible at `http://APP_URL:8000` by default, where `APP_URL` is defined in your `.env` file.
