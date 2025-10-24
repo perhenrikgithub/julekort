@@ -56,4 +56,4 @@ Ensure you have a `.env` file in the project root with the necessary environment
 docker compose up --build -d
 ```
 
-The application should be accessible at `http://APP_URL:8000` by default, where `APP_URL` is defined in your `.env` file.
+The application should be accessible at `http://APP_URL` by default, where `APP_URL` is defined in your `.env` file.
