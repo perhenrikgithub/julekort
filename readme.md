@@ -29,6 +29,7 @@ Create a `.env` file in the project root directory with the following configurat
 ```
 GMAIL_USER="mailaddress@gmail.com"
 GMAIL_APP_PASSWORD="xxxx yyyy zzzz qqqq"
+APP_URL="http://theURL:port_if_needed.com"
 ```
 
 > <b>Note:</b> Use a [Gmail App Password](https://support.google.com/accounts/answer/185833)

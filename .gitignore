@@ -1,4 +1,4 @@
 /static/uploads/*
-/static/cards/*
+/static/images/cards/*
 __pycache__
 .env

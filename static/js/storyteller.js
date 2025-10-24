@@ -2,10 +2,10 @@ const div = document.getElementById("story-teller");
 const buttons = document.querySelectorAll(".options > button");
 
 const sentences = [
-    { text: "Julekort er gøy!", fontSize: "6em", show_for: 4000 },
+    { text: "Julekort er gøy!", fontSize: "6em", show_for: 3000 },
     { text: "Det er koselig å sende julekort.", fontSize: "6em", show_for: 3000 },
     { text: "Det er koselig å få julekort.", fontSize: "6em", show_for: 3000 },
-    { text: "Men dyrt å sende til hele verden.", fontSize: "6em", show_for: 5000 },
+    { text: "Men dyrt å sende til hele verden.", fontSize: "6em", show_for: 4000 },
     { text: "Julepost 2025", fontSize: "6em", show_for: 3000 },
 ];
 
